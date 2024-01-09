@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <title>Telemedicine</title>
+    <style>
+      * {
+        margin: 0px;
+        padding: 0px;
+        font-family: sans-serif;
+      }
+      body {
+        background-color: #426273;
+        height: 135vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .main {
+        flex-basis: 80vh;
+        height: 130vh;
+        background-color: white;
+      }
+      .main h3 {
+        padding: 20px 100px;
+        font-size: 25px;
+        background-color: gray;
+      }
+      .main form {
+        padding: 10px;
+      }
+      .form-outer {
+        padding-bottom: 10px;
+      }
+      .form-outer button{
+        background-color: aqua;
+        margin: 10px 30%;
+        width: 40%;
+        height: 40px;
+        
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <h3>Telemedicine Dormant form</h3>
+      <form  method="post" id="form">
+        <div class="form-outer">
+          <div class="input-group mb-3">
+            <span class="input-group-text">1. Date of Dormant</span>
+            <input name="date_of_dormant" type="date" class="form-control" />
+          </div>
+        </div>
+
+        <div class="form-outer">
+          <div class="input-group mb-3">
+            <span class="input-group-text">2. Enter your NIN ID:</span>
+            <input name="enter_your_nin_id" type="number" class="form-control" />
+          </div>
+        </div>
+
+        <div class="form-outer">
+          <div class="input-group mb-3">
+            <span class="input-group-text">Health Facility Name:</span>
+            <input name="health_facility_name" type="text" class="form-control" />
+          </div>
+        </div>
+
+        <div class="form-outer">
+          <div class="input-group mb-3">
+            <span class="input-group-text">BLOCK Name:</span>
+            <input name="block_name" type="text" class="form-control" />
+          </div>
+        </div>
+        <div class="form-outer">
+          <div class="input-group mb-3">
+            <span class="input-group-text">SSK/PHC Name:</span>
+            <input name="ssk_phc_name" type="text" class="form-control" />
+          </div>
+        </div>
+
+        <div class="form-outer">
+          <div class="input-group mb-3">
+            <span class="input-group-text">3. How many days TM not to be done:</span>
+            <select  name="how_many_days_tm_not_to_be_done" class="form-select form-select-sm" aria-label=".form-select-sm example">
+              <option selected>plese select</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-outer">
+          <div class="input-group mb-3">
+            <span class="input-group-text">4. Dormant Reason:</span>
+            <select name= "dormant_reason" class="form-select form-select-sm" aria-label=".form-select-sm example">
+              <option selected>plese select</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-outer">
+          <div class="input-group mb-3">
+            <span class="input-group-text">CCL Against:</span>
+            <input name="ccl_against" type="date" class="form-control" />
+          </div>
+        </div>
+
+        <div class="form-outer">
+          <div class="input-group mb-3">
+            <span class="input-group-text">TM off Upto:</span>
+            <input name="tm_off_upto" type="date" class="form-control" />
+          </div>
+        </div>
+
+        <div class="form-outer">
+          <div class="input-group mb-3">
+            <span class="input-group-text"
+              >Details of others dormant reason or Name of the
+              Camp/Meeting/Training:</span
+            >
+            <textarea
+              class="form-control"
+              name="details-of_meeting"
+              placeholder="Leave a comment here"
+              id="floatingTextarea2"
+              style="height: 100px"
+            ></textarea>
+          </div>
+        </div>
+
+        <div class="form-outer">
+          <button type="submit">Submit</button>
+        </div>
+      </form>
+    </div>
+  </body>
+  <script>
+    let url='https://script.google.com/macros/s/AKfycbxB4yaF2xmt_cvvDSOLF0D6mLy8UctF5717aQ_MEeP_BeoIp5nAvvgdRaQVoeaxs3WOeA/exec'
+    let form = document.querySelector('#form');
+    form.addEventListener("submit",(e)=>{
+      let newData = new FormData(form);
+      fetch(url,{
+        method: "POST",
+        body:newData
+      }).then((res)=>res.text())
+      .then((finalRes)=>console.log(finalRes))
+      e.preventDefault
+    })
+  </script>
+</html>
