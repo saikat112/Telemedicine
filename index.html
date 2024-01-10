@@ -39,19 +39,18 @@
       .form-outer {
         padding-bottom: 10px;
       }
-      .form-outer button{
+      .form-outer button {
         background-color: aqua;
         margin: 10px 30%;
         width: 40%;
         height: 40px;
-        
       }
     </style>
   </head>
   <body>
     <div class="main">
       <h3>Telemedicine Dormant form</h3>
-      <form  method="post" id="form">
+      <form method="post" id="form">
         <div class="form-outer">
           <div class="input-group mb-3">
             <span class="input-group-text">1. Date of Dormant</span>
@@ -62,14 +61,22 @@
         <div class="form-outer">
           <div class="input-group mb-3">
             <span class="input-group-text">2. Enter your NIN ID:</span>
-            <input name="enter_your_nin_id" type="number" class="form-control" />
+            <input
+              name="enter_your_nin_id"
+              type="number"
+              class="form-control"
+            />
           </div>
         </div>
 
         <div class="form-outer">
           <div class="input-group mb-3">
             <span class="input-group-text">Health Facility Name:</span>
-            <input name="health_facility_name" type="text" class="form-control" />
+            <input
+              name="health_facility_name"
+              type="text"
+              class="form-control"
+            />
           </div>
         </div>
 
@@ -88,8 +95,14 @@
 
         <div class="form-outer">
           <div class="input-group mb-3">
-            <span class="input-group-text">3. How many days TM not to be done:</span>
-            <select  name="how_many_days_tm_not_to_be_done" class="form-select form-select-sm" aria-label=".form-select-sm example">
+            <span class="input-group-text"
+              >3. How many days TM not to be done:</span
+            >
+            <select
+              name="how_many_days_tm_not_to_be_done"
+              class="form-select form-select-sm"
+              aria-label=".form-select-sm example"
+            >
               <option selected>plese select</option>
               <option value="1">One</option>
               <option value="2">Two</option>
@@ -101,7 +114,11 @@
         <div class="form-outer">
           <div class="input-group mb-3">
             <span class="input-group-text">4. Dormant Reason:</span>
-            <select name= "dormant_reason" class="form-select form-select-sm" aria-label=".form-select-sm example">
+            <select
+              name="dormant_reason"
+              class="form-select form-select-sm"
+              aria-label=".form-select-sm example"
+            >
               <option selected>plese select</option>
               <option value="1">One</option>
               <option value="2">Two</option>
@@ -159,25 +176,25 @@
     //   e.preventDefault();
     // })
 
-    let url = 'https://script.google.com/macros/s/AKfycbxB4yaF2xmt_cvvDSOLF0D6mLy8UctF5717aQ_MEeP_BeoIp5nAvvgdRaQVoeaxs3WOeA/exec';
-let form = document.querySelector('#form');
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
-  let formData = new FormData(form);
-  fetch(url, {
-    method: 'POST',
-    body: formData
-  })
-  .then(response => response.text())
-  .then(data => {
-    console.log(data);
-    // Handle success or perform actions after data is sent
-  })
-  .catch(error => {
-    console.error('Error:', error);
-    // Handle errors
-  });
-});
-
+    let url =
+      "https://script.google.com/macros/s/AKfycbwwZpBMOYYQn6kZq2XgsOW_OQ22wyHvrh7eMFufqjTYfTUK7se9Jt2PtidZ6L9_e3jQFQ/exec";
+    let form = document.querySelector("#form");
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      let formData = new FormData(form);
+      fetch(url, {
+        method: "POST",
+        body: formData,
+      })
+        .then((response) => response.text())
+        .then((data) => {
+          console.log(data);
+          // Handle success or perform actions after data is sent
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+          // Handle errors
+        });
+    });
   </script>
 </html>
