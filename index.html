@@ -132,7 +132,7 @@
             >
             <textarea
               class="form-control"
-              name="details-of_meeting"
+              name="details_of_meeting"
               placeholder="Leave a comment here"
               id="floatingTextarea2"
               style="height: 100px"
@@ -153,9 +153,9 @@
       let newData = new FormData(form);
       fetch(url,{
         method: "POST",
-        body:newData
-      }).then((res)=>res.text())
-      .then((finalRes)=>console.log(finalRes))
+        body: newData
+      }).then((res)=> res.text())
+      .then((finalRes)=> console.log(finalRes))
       e.preventDefault
     })
   </script>
