@@ -147,16 +147,37 @@
     </div>
   </body>
   <script>
-    let url = 'https://script.google.com/macros/s/AKfycbxB4yaF2xmt_cvvDSOLF0D6mLy8UctF5717aQ_MEeP_BeoIp5nAvvgdRaQVoeaxs3WOeA/exec'
-    let form = document.querySelector('#form');
-    form.addEventListener("submit",(e)=>{
-      let new_data = new FormData(form);
-      fetch(url,{
-        method: "POST",
-        body: new_data
-      }).then((res)=> res.text())
-      .then((finalRes)=>{ console.log(finalRes)});
-      e.preventDefault();
-    })
+    // let url = 'https://script.google.com/macros/s/AKfycbxB4yaF2xmt_cvvDSOLF0D6mLy8UctF5717aQ_MEeP_BeoIp5nAvvgdRaQVoeaxs3WOeA/exec'
+    // let form = document.querySelector('#form');
+    // form.addEventListener("submit",(e)=>{
+    //   let new_data = new FormData(form);
+    //   fetch(url,{
+    //     method: "POST",
+    //     body: new_data
+    //   }).then((res)=> res.text())
+    //   .then((finalRes)=>{ console.log(finalRes)});
+    //   e.preventDefault();
+    // })
+
+    let url = 'https://script.google.com/macros/s/AKfycbxB4yaF2xmt_cvvDSOLF0D6mLy8UctF5717aQ_MEeP_BeoIp5nAvvgdRaQVoeaxs3WOeA/exec';
+let form = document.querySelector('#form');
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  let formData = new FormData(form);
+  fetch(url, {
+    method: 'POST',
+    body: formData
+  })
+  .then(response => response.text())
+  .then(data => {
+    console.log(data);
+    // Handle success or perform actions after data is sent
+  })
+  .catch(error => {
+    console.error('Error:', error);
+    // Handle errors
+  });
+});
+
   </script>
 </html>
