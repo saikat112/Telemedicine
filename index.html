@@ -147,16 +147,16 @@
     </div>
   </body>
   <script>
-    let url='https://script.google.com/macros/s/AKfycbxB4yaF2xmt_cvvDSOLF0D6mLy8UctF5717aQ_MEeP_BeoIp5nAvvgdRaQVoeaxs3WOeA/exec'
+    let url = 'https://script.google.com/macros/s/AKfycbxB4yaF2xmt_cvvDSOLF0D6mLy8UctF5717aQ_MEeP_BeoIp5nAvvgdRaQVoeaxs3WOeA/exec'
     let form = document.querySelector('#form');
     form.addEventListener("submit",(e)=>{
-      let newData = new FormData(form);
+      let new_data = new FormData(form);
       fetch(url,{
         method: "POST",
-        body: newData
+        body: new_data
       }).then((res)=> res.text())
       .then((finalRes)=> console.log(finalRes))
-      e.preventDefault
+      e.preventDefault();
     })
   </script>
 </html>
